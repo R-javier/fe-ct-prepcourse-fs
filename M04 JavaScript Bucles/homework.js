@@ -5,6 +5,13 @@ function obtenerMayor(x, y) {
   // Retornar el número más grande.
   // Si son iguales, retornar cualquiera de los dos.
   // Tu código:
+  if (x > y) {
+    return x;
+  } else if (y > x) {
+    return y;
+  } else {
+    return x || y;
+  }
 }
 
 function mayoriaDeEdad(edad) {
@@ -15,7 +22,7 @@ function mayoriaDeEdad(edad) {
   if (edad >= 18) {
     return "Allowed";
   } else {
-    return "Not Allowed";
+    return "Not allowed";
   }
 }
 
@@ -43,7 +50,7 @@ function saludo(idioma) {
   // Si "idioma" no es ninguno de los anteriores o es `undefined` devuelve "Hola!".
   // Tu código:
   if (idioma === "aleman") {
-    return "Guten Tag";
+    return "Guten Tag!";
   } else if (idioma === "mandarin") {
     return "Ni Hao!";
   } else if (idioma === "ingles") {
@@ -80,14 +87,22 @@ function esDiezOCinco(num) {
   // Retornar true si "num" es 10 o 5.
   // De lo contrario, retornar false.
   // Tu código:
-  return num === 10 || num === 5;
+  if (num === 10 || num === 5) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function estaEnRango(num) {
   // Retornar true si "num" es menor que 50 y mayor que 20.
   // De lo contrario, retornar false.
   // Tu código:
-  return num < 50 && num > 20;
+  if (num < 50 && num > 20) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function esEntero(num) {
@@ -116,7 +131,7 @@ function fizzBuzz(num) {
   } else if (num % 3 === 0) {
     return "fizz";
   } else {
-    return num;
+    return false;
   }
 }
 
@@ -128,14 +143,15 @@ function operadoresLogicos(num1, num2, num3) {
   // Si todos los argumentos son cero, retornar ---> "Error".
   // Si no se cumple ninguna de las condiciones anteriores, retornar false.
   // Tu código:
-  if (num1 < 0 || num2 < 0 || num3 < 0) {
-    return "Hay negativos";
-  } else if (num1 === 0 || num2 === 0 || num3 === 0) {
-    return "Error";
-  } else if (num1 > 0 && num1 > num2 && num1 > num3) {
+  if (num1 > num2 && num1 > num3 && num1 > 0) {
     return "Numero 1 es mayor y positivo";
+  } else if (num1 < 0 || num2 < 0 || num3 < 0) {
+    return "Hay negativos";
   } else if (num3 > num1 && num3 > num2) {
-    return num3 + 1;
+    num3++;
+    return num3;
+  } else if (num1 === 0 && num2 === 0 && num3 === 0) {
+    return "Error";
   } else {
     return false;
   }
@@ -148,18 +164,15 @@ function esPrimo(num) {
   // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
   // [Nota]: los números negativos, 0 y 1 NO son números primos.
   // Tu código:
-  if (num === 1 || num === 0) {
+  if (num <= 1) {
     return false;
   }
   for (var i = 2; i < num; i++) {
-    var j = numero / i;
-    if (Number.isInteger(j)) {
+    if (num % i === 0) {
       return false;
     }
-    if (numero === 2) {
-      return true;
-    }
   }
+
   return true;
 }
 
